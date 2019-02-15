@@ -46,7 +46,7 @@ def test_draw_a_picture():
 
 
 ###############################################################################
-# def draw_a_picture(point, n, color, window):
+#draw_a_picture(point, n, color, window):
 #     """
 #     See   m1_draw_problem_picture.pdf   in this project for pictures
 #     that may help you better understand the following specification:
@@ -80,7 +80,7 @@ def test_draw_a_picture():
 #   The is_prime function is supplied.  Do NOT change is_prime
 #     """
 ###############################################################################
-# TODO: 1  READ the doc-string for the is_prime function defined below.
+# done: 1  READ the doc-string for the is_prime function defined below.
 # You do NOT need to understand its implementations,
 # just its specification (per the doc-string).
 # You should  ** CALL **  functions as needed in implementing the
@@ -129,7 +129,43 @@ def is_prime(n):
 #
 def draw_a_picture(point, n, color, window):
 
-    pass
+    radius = 100
+    circle1 = rg.Circle(rg.Point(point.x, point.y), radius)
+    circle1.attach_to(window)
+    window.render()
+
+    rect1 = rg.Rectangle(rg.Point(point.x + 80, point.y - 50), rg.Point(point.x - 80,point.y + 50))
+    rect1.attach_to(window)
+
+    rect2 = rg.Rectangle(rg.Point(270, 300), rg.Point(430, 400))
+    rect2.attach_to(window)
+
+    
+
+
+    newstart = rg.Point(point.x, point.y)
+    newend = rg.Point(point.x + 80, point.y - 50)
+    newline = rg.Line(newstart,newend)
+    newline.color = color
+    newline.attach_to(window)
+
+    for k in range (n + 1):
+        p1x = point.x + 80
+        start = rg.Point(point.x, point.y)
+        end = rg.Point(p1x - 20, point.y - 50)
+        line = rg.Line(start, end)
+        line.color = color
+        line.attach_to(window)
+    return line
+
+    rect2 = rg.Rectangle(rg.Point(point2.x + 80, point2.y - 50), rg.Point(point2.x - 80, point2.y + 50))
+    rect2.attach_to(window)
+
+    newstart = rg.Point(point2.x, point2.y)
+    newend = rg.Point(point2.x + 80, point2.y - 50)
+    newline = rg.Line(newstart,newend)
+    newline.color = color
+    newline.attach_to(window)
 
 
 main()
