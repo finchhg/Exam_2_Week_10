@@ -3,8 +3,8 @@
 # successful
 def main():
     # when you have initialized your object, use the calls below to test
-    #run_test_init()
-    #run_test_withdraw()
+    run_test_init()
+    run_test_withdraw()
     return
 
 
@@ -17,6 +17,16 @@ class Bank(object):
     """
 
     def __init__(self, name, initial_deposit, account_number):
+
+        self.name = name
+        self.id = initial_deposit
+        self.an = account_number
+        self.balance = 0
+
+    def __repr__(self):
+        value = self.name + '' + self.id + '' + self.an + '' + str(self.withdraw)
+        return value
+
         """
         What comes in:
           -- self
@@ -47,12 +57,14 @@ class Bank(object):
           :type account_number: str
         """
     # ---------------------------------------------------------------------
-    # TODO: 1. Implement and test instances of this class.
+    # done: 1. Implement and test instances of this class.
     #     See the testing code (scroll down near bottom) for more examples.
     # ---------------------------------------------------------------------
 
 
     def withdraw(self, amount):
+        amount = 10
+        self.balance = self.id - amount
         """
         What comes in:
         -- self
@@ -76,7 +88,7 @@ class Bank(object):
           #   an error message is printed because there are insufficient funds
         """
     # ---------------------------------------------------------------------
-    # TODO: 4. Implement and test the withdraw method
+    # done: 4. Implement and test the withdraw method
     #     Implement your own test code, before you write your method
     #     Insert your test code for withdraw, where indicated
     #     Scroll down near the bottom of this screen
@@ -99,22 +111,54 @@ def run_test_init():
     expected_balance = 10000
     expected_account_number = 'A1'
     print("Expected:", expected_name, expected_balance, expected_account_number)
-    print("Actual:  ", b1.name, b1.balance, b1.account_number)
-    if (expected_name == b1.name) and (expected_balance == b1.balance) and (expected_account_number == b1.account_number):
+    print("Actual:  ", b1.name, b1.id, b1.an)
+    if (expected_name == b1.name) and (expected_balance == b1.id) and (expected_account_number == b1.an):
         print("Test passed SUCCESSFULLY!")
     else:
         print_failure_message()
     print()
+
+    b1 = Bank('Jim', 2000000, 'A2')
+    expected_name = 'Jim'
+    expected_balance = 2000000
+    expected_account_number = 'A2'
+    print("Expected:", expected_name, expected_balance, expected_account_number)
+    print("Actual:  ", b1.name, b1.id, b1.an)
+    if (expected_name == b1.name) and (expected_balance == b1.id) and (expected_account_number == b1.an):
+        print("Test passed SUCCESSFULLY!")
+    else:
+        print_failure_message()
+    print()
+
+    b1 = Bank('Harry', 20, 'A3')
+    expected_name = 'Harry'
+    expected_balance = 20
+    expected_account_number = 'A3'
+    print("Expected:", expected_name, expected_balance, expected_account_number)
+    print("Actual:  ", b1.name, b1.id, b1.an)
+    if (expected_name == b1.name) and (expected_balance == b1.id) and (expected_account_number == b1.an):
+        print("Test passed SUCCESSFULLY!")
+    else:
+        print_failure_message()
+    print()
+
     # ---------------------------------------------------------------------
-    # TODO: 2. Add two more test cases for your Bank class below.
+    # done: 2. Add two more test cases for your Bank class below.
     # ---------------------------------------------------------------------
 
 # ---------------------------------------------------------------------
-# TODO: 3. Implement your test for the withdraw method below
+# done: 3. Implement your test for the withdraw method below
 # ---------------------------------------------------------------------
-def run_test_withdrawal():
-# Implement at least two tests.  Use copy and paste to speed your coding.
-    pass
+def run_test_withdraw():
+    b1 = Bank('Harry', 20, 'A3')
+    expected_name = 'Harry'
+    b1.withdraw('Harry')
+    expected_balance = 10
+    expected_account_number = 'A3'
+    print("Expected:", expected_name, expected_balance, expected_account_number)
+    print("Actual:  ", b1.name, b1.id, b1.an)
+    if (expected_name == b1.name) and (expected_balance == b1.id) and (expected_account_number == b1.an):
+        print("Test passed SUCCESSFULLY!")
 
 
 def print_failure_message():
