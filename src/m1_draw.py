@@ -140,7 +140,7 @@ def draw_a_picture(point, n, color, window):
     rect2 = rg.Rectangle(rg.Point(270, 300), rg.Point(430, 400))
     rect2.attach_to(window)
 
-    
+
 
 
     newstart = rg.Point(point.x, point.y)
